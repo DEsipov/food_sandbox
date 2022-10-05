@@ -1,3 +1,11 @@
 from django.contrib import admin
 
-# Register your models here.
+from core.models import Ingredient
+
+
+@admin.register(Ingredient)
+class IngredientAdmin(admin.ModelAdmin):
+    """Класс настройки раздела игредиентов"""
+
+    list_display = ('pk', 'name', 'measurement_unit')
+    search_fields = ('name',)
