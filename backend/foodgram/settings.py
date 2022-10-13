@@ -77,12 +77,25 @@ WSGI_APPLICATION = 'foodgram.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+# SQLite
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+# PG
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': os.environ.get('DB_NAME', default='postgres'),
+#         'USER': os.environ.get('POSTGRES_USER', default='postgres'),
+#         'PASSWORD': os.environ.get('POSTGRES_PASSWORD', default='postgres'),
+#         'HOST': os.environ.get('DB_HOST', default='db'),
+#         'PORT': os.environ.get('DB_PORT', default=5432)
+#     }
+# }
 
 
 # Password validation
@@ -122,3 +135,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+# DRF
+REST_FRAMEWORK = {
+    'TEST_REQUEST_DEFAULT_FORMAT': 'json'
+}
+
+# AUTH_USER_MODEL = 'users.User'
